@@ -10,9 +10,9 @@ import {
 export default function Hero() {
   return (
     <section
-      id="home"
-      className="relative min-h-screen flex items-center overflow-hidden bg-[#050505]"
-    >
+  id="home"
+  className="relative flex min-h-screen items-center overflow-hidden bg-[#050505] pt-32"
+>
       {/* Background Glow */}
       <div className="absolute -top-40 -left-40 h-96 w-96 rounded-full bg-cyan-500/20 blur-[150px]" />
       <div className="absolute -bottom-40 -right-40 h-96 w-96 rounded-full bg-violet-600/20 blur-[150px]" />
@@ -29,7 +29,7 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 px-6 py-20 lg:grid-cols-2">
+      <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 px-6 py-10 lg:grid-cols-2">
         {/* LEFT */}
         <motion.div
           initial={{ opacity: 0, x: -80 }}
@@ -76,8 +76,8 @@ export default function Hero() {
               Download Resume
             </button>
           </div>
-        </motion.div>
-            <div className="mt-10 flex gap-5">
+
+         <div className="mt-10 flex gap-5">
 
   <a
     href="https://github.com/faizansayyad7"
@@ -105,6 +105,9 @@ export default function Hero() {
   </a>
 
 </div>
+
+        </motion.div>
+        
         {/* RIGHT */}
         <motion.div
           initial={{ opacity: 0, x: 80 }}
@@ -117,18 +120,16 @@ export default function Hero() {
             <div className="absolute inset-0 rounded-full bg-cyan-500/30 blur-3xl" />
 
             {/* Avatar Frame */}
-            <div className="relative flex h-[380px] w-[380px] items-center justify-center rounded-full border border-cyan-400/30 bg-white/5 backdrop-blur-xl">
-              <div className="flex h-[320px] w-[320px] items-center justify-center rounded-full border border-dashed border-cyan-400/40">
-                <span className="text-center text-gray-500">
-                  Your AI Avatar
-                  <br />
-                  <img
+            <div className="relative flex h-[500px] w-[500px] items-center justify-center rounded-full border border-cyan-400/30 bg-white/5 backdrop-blur-xl">
+              <div className="flex h-[420px] w-[420px] items-center justify-center rounded-full overflow-hidden border border-dashed border-cyan-400/40">
+
+<img
   src="/avatar.png"
   alt="Faizan Sayyad"
-  className="h-[340px] object-contain transition duration-500 hover:scale-105"
+  className="h-full object-contain hover:scale-105 transition duration-500"
 />
-                </span>
-              </div>
+
+</div>
             </div>
 
             {/* Status Card */}
@@ -152,3 +153,4 @@ export default function Hero() {
     </section>
   );
 }
+
