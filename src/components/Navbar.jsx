@@ -1,75 +1,94 @@
-import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
-const navLinks = [
-  "Home",
-  "About",
-  "Skills",
-  "Projects",
-  "Certificates",
-  "Contact",
+const links = [
+  { name: "Home", id: "home" },
+  { name: "About", id: "about" },
+  { name: "Skills", id: "skills" },
+  { name: "Projects", id: "projects" },
+  { name: "Experience", id: "experience" },
+  { name: "Contact", id: "contact" },
 ];
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState("home");
+
+  useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > 40);
+
+      const sections = links.map((link) =>
+        document.getElementById(link.id)
+      );
+
+      sections.forEach((section) => {
+        if (!section) return;
+
+        const top = section.offsetTop - 120;
+        const bottom = top + section.offsetHeight;
+
+        if (window.scrollY >= top && window.scrollY < bottom) {
+          setActive(section.id);
+        }
+      });
+    };
+
+    window.addEventListener("scroll", onScroll);
+    onScroll();
+
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50">
-      <nav className="mx-auto mt-5 flex w-[92%] max-w-7xl items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-6 py-4 backdrop-blur-xl">
+    <motion.nav
+      initial={{ y: -80 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.6 }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "backdrop-blur-xl bg-black/50 border-b border-cyan-400/20"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
 
-        <h1 className="text-2xl font-bold tracking-wider text-cyan-400">
-          FAIZAN<span className="text-white">.</span>
+        <h1 className="text-2xl font-black tracking-widest">
+          <span className="text-cyan-400">FAIZAN</span>
         </h1>
 
-        <ul className="hidden gap-8 text-sm font-medium text-gray-300 lg:flex">
-          {navLinks.map((item) => (
-            <li key={item}>
+        <ul className="hidden md:flex items-center gap-8">
+
+          {links.map((link) => (
+
+            <li key={link.id}>
+
               <a
-                href={`#${item.toLowerCase()}`}
-                className="transition duration-300 hover:text-cyan-400"
+                href={`#${link.id}`}
+                className={`relative transition ${
+                  active === link.id
+                    ? "text-cyan-400"
+                    : "text-gray-300 hover:text-cyan-400"
+                }`}
               >
-                {item}
+                {link.name}
+
+                {active === link.id && (
+                  <motion.div
+                    layoutId="activeLink"
+                    className="absolute -bottom-2 left-0 h-[2px] w-full bg-cyan-400"
+                  />
+                )}
+
               </a>
+
             </li>
+
           ))}
+
         </ul>
 
-        <a
-          href="/resume.pdf"
-          className="hidden rounded-xl bg-cyan-400 px-5 py-2 font-semibold text-black transition hover:scale-105 lg:block"
-        >
-          Resume
-        </a>
-
-        <button
-          className="text-white lg:hidden"
-          onClick={() => setOpen(!open)}
-        >
-          {open ? <X size={28} /> : <Menu size={28} />}
-        </button>
-      </nav>
-
-      {open && (
-        <div className="mx-auto mt-3 flex w-[92%] max-w-7xl flex-col rounded-2xl border border-white/10 bg-[#111]/95 p-5 backdrop-blur-xl lg:hidden">
-          {navLinks.map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
-              className="py-3 text-gray-300 transition hover:text-cyan-400"
-              onClick={() => setOpen(false)}
-            >
-              {item}
-            </a>
-          ))}
-
-          <a
-            href="/resume.pdf"
-            className="mt-4 rounded-xl bg-cyan-400 py-3 text-center font-semibold text-black"
-          >
-            Resume
-          </a>
-        </div>
-      )}
-    </header>
+      </div>
+    </motion.nav>
   );
 }
