@@ -32,7 +32,6 @@ export default function Spotlight() {
         x,
         y,
       }}
-      className="pointer-events-none fixed left-0 top-0 z-0 h-[400px] w-[400px] rounded-full bg-cyan-400/10 blur-[120px]"
-    />
+        className="pointer-events-none fixed left-0 top-0 -z-10 h-[400px] w-[400px] rounded-full bg-cyan-400/10 blur-[120px]"    />
   );
 }
