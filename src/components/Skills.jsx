@@ -1,65 +1,77 @@
 import { motion } from "framer-motion";
+import {
+  FaPython,
+  FaLinux,
+  FaGitAlt,
+  FaHtml5,
+  FaCss3Alt,
+  FaJs,
+  FaReact,
+} from "react-icons/fa";
+import {
+  SiBurpsuite,
+  SiWireshark,
+  SiMysql,
+} from "react-icons/si";
 
 const skills = [
-  { name: "Cyber Security", level: 90 },
-  { name: "Python", level: 85 },
-  { name: "Linux", level: 80 },
-  { name: "Networking", level: 85 },
-  { name: "SQL", level: 80 },
-  { name: "Power BI", level: 75 },
+  { name: "Python", icon: <FaPython size={32} /> },
+  { name: "Linux", icon: <FaLinux size={32} /> },
+  { name: "Networking", icon: "🌐" },
+  { name: "Ethical Hacking", icon: "🛡️" },
+  { name: "VAPT", icon: "🔐" },
+  { name: "OWASP Top 10", icon: "⚠️" },
+  { name: "Burp Suite", icon: <SiBurpsuite size={32} /> },
+  { name: "Nmap", icon: "📡" },
+  { name: "Wireshark", icon: <SiWireshark size={32} /> },
+  { name: "SQL", icon: <SiMysql size={32} /> },
+  { name: "Git", icon: <FaGitAlt size={32} /> },
+  { name: "HTML5", icon: <FaHtml5 size={32} /> },
+  { name: "CSS3", icon: <FaCss3Alt size={32} /> },
+  { name: "JavaScript", icon: <FaJs size={32} /> },
+  { name: "React", icon: <FaReact size={32} /> },
 ];
 
 export default function Skills() {
   return (
-    <section
-      id="skills"
-      className="bg-transparent px-6 py-24 text-white"
-    >
-      <div className="mx-auto max-w-7xl">
+    <section id="skills" className="py-24 px-6">
+
+      <div className="max-w-7xl mx-auto">
 
         <motion.h2
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: .6 }}
-          className="mb-16 text-center text-5xl font-bold"
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-16 text-center text-5xl font-black"
         >
-          My <span className="text-cyan-400">Skills</span>
+          Technical <span className="text-cyan-400">Skills</span>
         </motion.h2>
 
-        <div className="grid gap-8 md:grid-cols-2">
+        <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-5">
 
           {skills.map((skill, index) => (
 
             <motion.div
               key={skill.name}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: .7 }}
-              className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.05 }}
+              whileHover={{
+                y: -8,
+                scale: 1.05,
+              }}
+              className="rounded-3xl border border-cyan-400/20 bg-white/5 p-6 backdrop-blur-xl text-center transition duration-300 hover:border-cyan-400 hover:shadow-[0_0_25px_rgba(34,211,238,0.25)]"
             >
 
-              <div className="mb-3 flex justify-between">
-
-                <span className="font-semibold">
-                  {skill.name}
-                </span>
-
-                <span className="text-cyan-400">
-                  {skill.level}%
-                </span>
-
+              <div className="mb-4 flex justify-center text-cyan-400">
+                {skill.icon}
               </div>
 
-              <div className="h-3 overflow-hidden rounded-full bg-white/10">
-
-                <motion.div
-                  initial={{ width: 0 }}
-                  whileInView={{ width: `${skill.level}%` }}
-                  transition={{ duration: 1 }}
-                  className="h-full rounded-full bg-cyan-400"
-                />
-
-              </div>
+              <h3 className="font-semibold text-white">
+                {skill.name}
+              </h3>
 
             </motion.div>
 
@@ -68,6 +80,7 @@ export default function Skills() {
         </div>
 
       </div>
+
     </section>
   );
 }
