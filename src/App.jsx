@@ -15,6 +15,7 @@ import Cursor from "./components/effects/Cursor";
 import BackgroundGlow from "./components/effects/BackgroundGlow";
 import ScrollProgress from "./components/effects/ScrollProgress";
 import Aurora from "./components/effects/Aurora";
+import Spotlight from "./components/effects/Spotlight";
 
 import Loader from "./components/Loader";
 
@@ -39,6 +40,7 @@ function App() {
 
       <BackgroundGlow />
       <Aurora />
+      <Spotlight />
 
       <div className="relative z-10">
         <ScrollProgress />
