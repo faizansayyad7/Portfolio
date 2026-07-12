@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import Tilt from "react-parallax-tilt";
+import { useState } from "react";
+import ProjectModal from "./ProjectModal";
 
 const projects = [
   {
@@ -33,6 +35,9 @@ const projects = [
 ];
 
 export default function Projects() {
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedTitle, setSelectedTitle] = useState("");
+
   return (
     <section
       id="projects"
@@ -61,7 +66,7 @@ export default function Projects() {
               perspective={1200}
               transitionSpeed={1500}
               scale={1.03}
-              glareEnable={true}
+              glareEnable
               glareMaxOpacity={0.12}
               glareColor="#22d3ee"
               glarePosition="all"
@@ -80,10 +85,20 @@ export default function Projects() {
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="h-64 w-full object-cover duration-700 group-hover:scale-110"
+                    onClick={() => {
+                      setSelectedImage(project.image);
+                      setSelectedTitle(project.title);
+                    }}
+                    className="h-64 w-full cursor-pointer object-cover duration-700 group-hover:scale-110"
                   />
 
                   <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent opacity-80"></div>
+
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 transition duration-300 group-hover:opacity-100">
+                    <span className="rounded-full border border-cyan-400 bg-black/70 px-5 py-2 text-sm text-cyan-300 backdrop-blur-md">
+                      Click to Preview
+                    </span>
+                  </div>
 
                 </div>
 
@@ -153,6 +168,16 @@ export default function Projects() {
         </div>
 
       </div>
+
+      <ProjectModal
+        image={selectedImage}
+        title={selectedTitle}
+        onClose={() => {
+          setSelectedImage(null);
+          setSelectedTitle("");
+        }}
+      />
+
     </section>
   );
 }
