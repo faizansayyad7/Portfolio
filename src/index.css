@@ -21,3 +21,26 @@ body {
   background: #00f5ff;
   color: black;
 }
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+cursor:none;
+background:#050505;
+}
+
+*{
+box-sizing:border-box;
+}
+
+body{
+    overflow-x:hidden;
+    background:#050505;
+}
+
+section{
+    position:relative;
+    z-index:2;
+}

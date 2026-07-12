@@ -11,7 +11,7 @@ export default function Hero() {
   return (
     <section
   id="home"
-  className="relative flex min-h-screen items-center overflow-hidden bg-[#050505] pt-32"
+  className="relative flex min-h-screen items-center overflow-hidden pt-24 lg:pt-28"
 >
       {/* Background Glow */}
       <div className="absolute -top-40 -left-40 h-96 w-96 rounded-full bg-cyan-500/20 blur-[150px]" />
@@ -120,17 +120,23 @@ export default function Hero() {
             <div className="absolute inset-0 rounded-full bg-cyan-500/30 blur-3xl" />
 
             {/* Avatar Frame */}
-            <div className="relative flex h-[500px] w-[500px] items-center justify-center rounded-full border border-cyan-400/30 bg-white/5 backdrop-blur-xl">
-              <div className="flex h-[420px] w-[420px] items-center justify-center rounded-full overflow-hidden border border-dashed border-cyan-400/40">
 
-<img
+            <div className="relative flex h-[500px] w-[500px] items-center justify-center">
+
+            {/* Outer Glow */}
+            <div className="absolute h-[470px] w-[470px] rounded-full border border-cyan-400/20 animate-pulse"></div>
+
+            {/* Glass Circle */}
+                <div className="relative flex h-[430px] w-[430px] items-center justify-center rounded-full border border-cyan-400/30 bg-white/5 backdrop-blur-xl overflow-hidden">
+
+             <img
   src="/avatar.png"
   alt="Faizan Sayyad"
-  className="h-full object-contain hover:scale-105 transition duration-500"
+  className="w-full h-full object-contain"
 />
+        </div>
 
-</div>
-            </div>
+        </div>
 
             {/* Status Card */}
             <div className="absolute -bottom-5 left-1/2 w-64 -translate-x-1/2 rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-xl">
