@@ -1,34 +1,35 @@
 import { motion } from "framer-motion";
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 const projects = [
   {
-    title: "Password Security Web",
+    title: "SecureVision SOC",
+    image: "/projects/securevision.png",
     description:
-      "A web application that analyzes password strength and promotes secure password practices.",
-    tech: "HTML • CSS • JavaScript",
-    github: "https://github.com/faizansayyad7/Password-Security-Web",
+      "Mini Security Operations Center dashboard with real-time log monitoring and analytics.",
+    github: "https://github.com/faizansayyad7",
+    demo: "#",
+    tech: ["Python", "Flask", "SQLite"],
   },
+
   {
     title: "Phishing URL Detector",
+    image: "/projects/phishing.png",
     description:
-      "Python & Flask based application to identify suspicious and phishing URLs.",
-    tech: "Python • Flask • Machine Learning",
+      "Machine Learning based phishing URL detection using Python and Flask.",
     github: "https://github.com/faizansayyad7",
+    demo: "#",
+    tech: ["Python", "ML", "Flask"],
   },
+
   {
-    title: "Security Header Auditor",
+    title: "Password Security Web",
+    image: "/projects/password.png",
     description:
-      "A tool to analyze website security headers and highlight missing configurations.",
-    tech: "Python • Flask",
+      "Password strength analyzer with breach checker and security suggestions.",
     github: "https://github.com/faizansayyad7",
-  },
-  {
-    title: "Sales Dashboard",
-    description:
-      "Interactive Power BI dashboard for analyzing sales trends and business performance.",
-    tech: "Power BI • SQL",
-    github: "https://github.com/faizansayyad7",
+    demo: "#",
+    tech: ["HTML", "CSS", "JavaScript"],
   },
 ];
 
@@ -36,53 +37,86 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="bg-transparent px-6 py-24 text-white"
+      className="py-24 px-6 bg-transparent"
     >
-      <div className="mx-auto max-w-7xl">
+      <div className="max-w-7xl mx-auto">
 
-        <motion.h2
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: .6 }}
-          className="mb-16 text-center text-5xl font-bold"
-        >
+        <h2 className="text-5xl font-bold text-center mb-16">
           My <span className="text-cyan-400">Projects</span>
-        </motion.h2>
+        </h2>
 
-        <div className="grid gap-8 md:grid-cols-2">
+        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
 
           {projects.map((project, index) => (
 
             <motion.div
-              key={project.title}
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{ scale: 1.03 }}
-              transition={{ duration: .5 }}
-              className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl"
+              key={index}
+              whileHover={{
+                y: -10,
+                scale: 1.03,
+              }}
+              transition={{ duration: .3 }}
+              className="group overflow-hidden rounded-3xl border border-cyan-400/20 bg-white/5 backdrop-blur-xl"
             >
 
-              <h3 className="mb-3 text-2xl font-bold text-cyan-400">
-                {project.title}
-              </h3>
+              <div className="overflow-hidden">
 
-              <p className="mb-5 leading-7 text-gray-300">
-                {project.description}
-              </p>
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="h-60 w-full object-cover duration-700 group-hover:scale-110"
+                />
 
-              <span className="rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-300">
-                {project.tech}
-              </span>
+              </div>
 
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-8 flex w-fit items-center gap-3 rounded-xl bg-cyan-400 px-5 py-3 font-semibold text-black transition hover:scale-105"
-              >
-                <FaGithub />
-                GitHub
-              </a>
+              <div className="p-6">
+
+                <h3 className="text-2xl font-bold">
+                  {project.title}
+                </h3>
+
+                <p className="mt-4 text-gray-400 leading-7">
+                  {project.description}
+                </p>
+
+                <div className="mt-5 flex flex-wrap gap-2">
+
+                  {project.tech.map((item) => (
+
+                    <span
+                      key={item}
+                      className="rounded-full border border-cyan-400/30 px-3 py-1 text-sm text-cyan-300"
+                    >
+                      {item}
+                    </span>
+
+                  ))}
+
+                </div>
+
+                <div className="mt-8 flex gap-4">
+
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center gap-2 rounded-xl bg-cyan-400 px-5 py-3 font-semibold text-black transition hover:scale-105"
+                  >
+                    <FaGithub />
+                    Code
+                  </a>
+
+                  <a
+                    href={project.demo}
+                    className="flex items-center gap-2 rounded-xl border border-white/20 px-5 py-3 transition hover:border-cyan-400 hover:text-cyan-400"
+                  >
+                    <FaExternalLinkAlt />
+                    Demo
+                  </a>
+
+                </div>
+
+              </div>
 
             </motion.div>
 
