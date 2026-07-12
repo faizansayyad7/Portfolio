@@ -106,15 +106,54 @@ export default function Hero() {
 
 </div>
 
+            <div className="mt-12 grid grid-cols-3 gap-4 max-w-md">
+
+  <div className="rounded-xl border border-cyan-400/20 bg-white/5 p-4 text-center backdrop-blur-lg">
+    <h3 className="text-3xl font-bold text-cyan-400">5+</h3>
+    <p className="mt-2 text-sm text-gray-400">
+      Projects
+    </p>
+  </div>
+
+  <div className="rounded-xl border border-cyan-400/20 bg-white/5 p-4 text-center backdrop-blur-lg">
+    <h3 className="text-3xl font-bold text-cyan-400">3</h3>
+    <p className="mt-2 text-sm text-gray-400">
+      Certificates
+    </p>
+  </div>
+
+  <div className="rounded-xl border border-cyan-400/20 bg-white/5 p-4 text-center backdrop-blur-lg">
+    <h3 className="text-3xl font-bold text-cyan-400">100%</h3>
+    <p className="mt-2 text-sm text-gray-400">
+      Passion
+    </p>
+  </div>
+
+</div>
+
         </motion.div>
+
+        
         
         {/* RIGHT */}
         <motion.div
-          initial={{ opacity: 0, x: 80 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          className="flex justify-center"
-        >
+  initial={{ opacity: 0, x: 80 }}
+  animate={{
+    opacity: 1,
+    x: 0,
+    y: [0, -12, 0],
+  }}
+  transition={{
+    opacity: { duration: 0.8 },
+    x: { duration: 0.8 },
+    y: {
+      repeat: Infinity,
+      duration: 4,
+      ease: "easeInOut",
+    },
+  }}
+  className="flex justify-center"
+>
           <div className="relative">
             {/* Glow */}
             <div className="absolute inset-0 rounded-full bg-cyan-500/30 blur-3xl" />
@@ -129,6 +168,18 @@ export default function Hero() {
             {/* Glass Circle */}
                 <div className="relative flex h-[430px] w-[430px] items-center justify-center rounded-full border border-cyan-400/30 bg-white/5 backdrop-blur-xl overflow-hidden">
 
+                <div className="absolute h-[470px] w-[470px] rounded-full border border-cyan-400/30"></div>
+
+<motion.div
+  animate={{ rotate: 360 }}
+  transition={{
+    repeat: Infinity,
+    duration: 18,
+    ease: "linear",
+  }}
+  className="absolute h-[490px] w-[490px] rounded-full border-2 border-dashed border-cyan-400/40"
+/>
+
              <img
   src="/avatar.png"
   alt="Faizan Sayyad"
@@ -137,6 +188,19 @@ export default function Hero() {
         </div>
 
         </div>
+
+        <motion.div
+  animate={{
+    scale: [1, 1.05, 1],
+  }}
+  transition={{
+    repeat: Infinity,
+    duration: 2,
+  }}
+  className="absolute -top-20 right-10 rounded-full bg-green-500 px-4 py-2 text-sm font-semibold text-white shadow-lg"
+>
+  🟢 Available for Internship
+</motion.div>
 
             {/* Status Card */}
             <div className="absolute -bottom-5 left-1/2 w-64 -translate-x-1/2 rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-xl">
