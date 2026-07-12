@@ -22,7 +22,7 @@ export default function Certificates() {
   return (
     <section
       id="certificates"
-      className="bg-[#0a0a0a] py-24 px-6 text-white"
+      className="bg-transparent py-24 px-6 text-white"
     >
       <div className="max-w-7xl mx-auto">
 

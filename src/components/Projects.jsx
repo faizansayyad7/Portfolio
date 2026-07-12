@@ -36,7 +36,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="bg-[#050505] px-6 py-24 text-white"
+      className="bg-transparent px-6 py-24 text-white"
     >
       <div className="mx-auto max-w-7xl">
 

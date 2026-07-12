@@ -10,23 +10,31 @@ import Footer from "./components/Footer";
 import Cursor from "./components/effects/Cursor";
 import BackgroundGlow from "./components/effects/BackgroundGlow";
 import ScrollProgress from "./components/effects/ScrollProgress";
+import Aurora from "./components/effects/Aurora";
 
 function App() {
   return (
-    <>
-      <ScrollProgress />
-      <Cursor />
-      <BackgroundGlow />
-      <Navbar />
-      <Hero />
-      <About />
-      <Skills />
-      <Projects />
-      <Experience />
-      <Certificates />
-      <Contact />
-      <Footer />
-    </>
+    <div className="relative overflow-x-hidden bg-[#050505] text-white">
+
+  <BackgroundGlow />
+
+  <div className="relative z-10">
+    <Aurora />
+    <ScrollProgress />
+    <Cursor />
+
+    <Navbar />
+    <Hero />
+    <About />
+    <Skills />
+    <Projects />
+    <Experience />
+    <Certificates />
+    <Contact />
+    <Footer />
+  </div>
+
+</div>
   );
 }
 

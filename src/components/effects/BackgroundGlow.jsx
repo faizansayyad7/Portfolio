@@ -1,54 +1,49 @@
 import { motion } from "framer-motion";
 
-const circles = [
-  {
-    size: 280,
-    top: "10%",
-    left: "8%",
-    color: "bg-cyan-500/20",
-    duration: 8,
-  },
-  {
-    size: 220,
-    top: "60%",
-    left: "70%",
-    color: "bg-violet-500/20",
-    duration: 10,
-  },
-  {
-    size: 180,
-    top: "30%",
-    left: "55%",
-    color: "bg-sky-500/20",
-    duration: 7,
-  },
-];
-
 export default function BackgroundGlow() {
   return (
-    <div className="fixed inset-0 -z-10 overflow-hidden">
-      {circles.map((item, index) => (
-        <motion.div
-          key={index}
-          className={`absolute rounded-full blur-[120px] ${item.color}`}
-          style={{
-            width: item.size,
-            height: item.size,
-            top: item.top,
-            left: item.left,
-          }}
-          animate={{
-            y: [-30, 30, -30],
-            x: [-20, 20, -20],
-            scale: [1, 1.15, 1],
-          }}
-          transition={{
-            repeat: Infinity,
-            duration: item.duration,
-            ease: "easeInOut",
-          }}
-        />
-      ))}
+    <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+
+      {/* Cyan Glow */}
+      <motion.div
+        className="absolute left-0 top-20 h-[450px] w-[450px] rounded-full bg-cyan-500/15 blur-[140px]"
+        animate={{
+          x: [0, 120, 0],
+          y: [0, 80, 0],
+        }}
+        transition={{
+          repeat: Infinity,
+          duration: 15,
+          ease: "easeInOut",
+        }}
+      />
+
+      {/* Purple Glow */}
+      <motion.div
+        className="absolute right-0 top-[40%] h-[500px] w-[500px] rounded-full bg-violet-600/15 blur-[150px]"
+        animate={{
+          x: [0, -120, 0],
+          y: [0, -80, 0],
+        }}
+        transition={{
+          repeat: Infinity,
+          duration: 18,
+          ease: "easeInOut",
+        }}
+      />
+
+      {/* Bottom Glow */}
+      <motion.div
+        className="absolute bottom-0 left-1/2 h-[400px] w-[400px] -translate-x-1/2 rounded-full bg-cyan-400/10 blur-[130px]"
+        animate={{
+          scale: [1, 1.2, 1],
+        }}
+        transition={{
+          repeat: Infinity,
+          duration: 10,
+        }}
+      />
+
     </div>
   );
 }

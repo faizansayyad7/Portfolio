@@ -4,7 +4,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="bg-[#050505] px-6 py-24 text-white"
+      className="bg-transparent px-6 py-24 text-white"
     >
       <div className="mx-auto max-w-5xl">
 

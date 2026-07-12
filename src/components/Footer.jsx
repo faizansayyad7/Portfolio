@@ -6,7 +6,7 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-black py-10 text-white">
+    <footer className="border-t border-white/10 bg-transparent py-10 text-white">
 
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-6">
 
