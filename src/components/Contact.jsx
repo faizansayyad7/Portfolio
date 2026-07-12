@@ -1,53 +1,91 @@
 import { motion } from "framer-motion";
+import {
+  FaEnvelope,
+  FaGithub,
+  FaLinkedin,
+  FaMapMarkerAlt,
+} from "react-icons/fa";
 
 export default function Contact() {
   return (
-    <section
-      id="contact"
-      className="bg-transparent px-6 py-24 text-white"
-    >
-      <div className="mx-auto max-w-5xl">
+    <section id="contact" className="py-24 px-6">
+      <div className="max-w-6xl mx-auto">
 
-        <motion.h2
+        <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="mb-16 text-center text-5xl font-bold"
-        >
-          Contact <span className="text-cyan-400">Me</span>
-        </motion.h2>
-
-        <motion.form
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          className="space-y-6 rounded-3xl border border-white/10 bg-white/5 p-10 backdrop-blur-xl"
+          transition={{ duration: 0.6 }}
+          className="rounded-3xl border border-cyan-400/20 bg-white/5 backdrop-blur-xl p-10"
         >
 
-          <input
-            type="text"
-            placeholder="Your Name"
-            className="w-full rounded-xl bg-black/30 p-4 outline-none border border-white/10 focus:border-cyan-400"
-          />
+          <h2 className="text-5xl font-bold text-center">
+            Let's <span className="text-cyan-400">Connect</span>
+          </h2>
 
-          <input
-            type="email"
-            placeholder="Your Email"
-            className="w-full rounded-xl bg-black/30 p-4 outline-none border border-white/10 focus:border-cyan-400"
-          />
+          <p className="mt-6 text-center text-gray-400 max-w-2xl mx-auto">
+            I'm currently looking for Cyber Security internship and
+            entry-level opportunities. Feel free to connect with me.
+          </p>
 
-          <textarea
-            rows="6"
-            placeholder="Your Message"
-            className="w-full rounded-xl bg-black/30 p-4 outline-none border border-white/10 focus:border-cyan-400"
-          ></textarea>
+          <div className="grid md:grid-cols-2 gap-8 mt-12">
 
-          <button
-            className="rounded-xl bg-cyan-400 px-8 py-4 font-semibold text-black transition hover:scale-105"
-          >
-            Send Message
-          </button>
+            <a
+              href="mailto:faizansayyad1076@gmail.com"
+              className="rounded-2xl border border-cyan-400/20 bg-white/5 p-6 hover:border-cyan-400 transition"
+            >
+              <FaEnvelope size={30} className="text-cyan-400 mb-4" />
 
-        </motion.form>
+              <h3 className="text-xl font-bold">
+                Email
+              </h3>
 
+              <p className="mt-2 text-gray-400 break-all">
+                faizansayyad1076@gmail.com
+              </p>
+            </a>
+
+            <div className="rounded-2xl border border-cyan-400/20 bg-white/5 p-6">
+
+              <FaMapMarkerAlt
+                size={30}
+                className="text-cyan-400 mb-4"
+              />
+
+              <h3 className="text-xl font-bold">
+                Location
+              </h3>
+
+              <p className="mt-2 text-gray-400">
+                Maharashtra, India
+              </p>
+
+            </div>
+
+          </div>
+
+          <div className="flex justify-center gap-6 mt-12">
+
+            <a
+              href="https://github.com/faizansayyad7"
+              target="_blank"
+              rel="noreferrer"
+              className="flex h-14 w-14 items-center justify-center rounded-full border border-cyan-400/30 hover:bg-cyan-400 hover:text-black transition"
+            >
+              <FaGithub size={24} />
+            </a>
+
+            <a
+              href="https://linkedin.com/in/faizansayyad1076"
+              target="_blank"
+              rel="noreferrer"
+              className="flex h-14 w-14 items-center justify-center rounded-full border border-cyan-400/30 hover:bg-cyan-400 hover:text-black transition"
+            >
+              <FaLinkedin size={24} />
+            </a>
+
+          </div>
+
+        </motion.div>
       </div>
     </section>
   );
