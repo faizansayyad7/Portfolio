@@ -16,6 +16,7 @@ import BackgroundGlow from "./components/effects/BackgroundGlow";
 import ScrollProgress from "./components/effects/ScrollProgress";
 import Aurora from "./components/effects/Aurora";
 import Spotlight from "./components/effects/Spotlight";
+import ScrollTop from "./components/effects/ScrollTop";
 
 import Loader from "./components/Loader";
 
@@ -55,6 +56,7 @@ function App() {
         <Experience />
         <Certificates />
         <Contact />
+        <ScrollTop />
         <Footer />
       </div>
 
