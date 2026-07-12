@@ -1,74 +1,76 @@
 import { motion } from "framer-motion";
+import { FaBriefcase } from "react-icons/fa";
 
-const timeline = [
+const experience = [
   {
-    year: "2026 - Present",
-    title: "Cyber Security Intern",
+    role: "Cyber Security Intern",
     company: "IT Roots Pvt. Ltd.",
+    date: "2026 - Present",
     description:
-      "Learning VAPT, Linux, Networking, Python and building cybersecurity projects."
+      "Learning Ethical Hacking, Vulnerability Assessment, Penetration Testing, Linux Security, Networking, Web Application Security and building real-world cybersecurity projects.",
   },
+
   {
-    year: "2026",
-    title: "Cyber Security Certifications",
-    company: "Cybrary | Reliance Foundation | Tech Mahindra Foundation",
+    role: "Bachelor of Science (B.Sc.CS)",
+    company: "Savitribai Phule Pune University",
+    date: "2022 - 2025",
     description:
-      "Completed cybersecurity fundamentals, IoT networking and security training."
+      "Completed Bachelor of Science (Computer Science) while strengthening problem-solving, analytical thinking and technical skills, alongside continuous learning in Cyber Security.",
   },
-  {
-    year: "2025",
-    title: "BSc CS Student",
-    company: "Computer Science",
-    description:
-      "Focused on Cyber Security, Python, SQL, DSA and secure application development."
-  }
 ];
 
 export default function Experience() {
   return (
     <section
       id="experience"
-      className="bg-transparent px-6 py-24 text-white"
+      className="py-24 px-6"
     >
-      <div className="mx-auto max-w-5xl">
+      <div className="max-w-6xl mx-auto">
 
-        <motion.h2
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          className="mb-16 text-center text-5xl font-bold"
-        >
-          Experience <span className="text-cyan-400">& Education</span>
-        </motion.h2>
+        <h2 className="text-5xl font-bold text-center mb-20">
+          Work <span className="text-cyan-400">Experience</span>
+        </h2>
 
-        <div className="relative border-l border-cyan-400/40 pl-8">
+        <div className="relative">
 
-          {timeline.map((item) => (
+          <div className="absolute left-6 top-0 h-full w-1 bg-cyan-400/30"></div>
+
+          {experience.map((item, index) => (
 
             <motion.div
-              key={item.title}
+              key={index}
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
               transition={{ duration: .6 }}
-              className="relative mb-12"
+              className="relative mb-14 pl-20"
             >
 
-              <div className="absolute -left-[42px] h-5 w-5 rounded-full bg-cyan-400"></div>
+              <div className="absolute left-0 top-2 flex h-12 w-12 items-center justify-center rounded-full bg-cyan-400 text-black">
 
-              <span className="text-cyan-400">
-                {item.year}
-              </span>
+                <FaBriefcase />
 
-              <h3 className="mt-2 text-2xl font-bold">
-                {item.title}
-              </h3>
+              </div>
 
-              <h4 className="mb-3 text-gray-400">
-                {item.company}
-              </h4>
+              <div className="rounded-3xl border border-cyan-400/20 bg-white/5 p-7 backdrop-blur-xl">
 
-              <p className="leading-7 text-gray-300">
-                {item.description}
-              </p>
+                <h3 className="text-2xl font-bold">
+                  {item.role}
+                </h3>
+
+                <p className="mt-2 text-cyan-400">
+                  {item.company}
+                </p>
+
+                <span className="text-gray-500">
+                  {item.date}
+                </span>
+
+                <p className="mt-5 leading-8 text-gray-400">
+                  {item.description}
+                </p>
+
+              </div>
 
             </motion.div>
 
