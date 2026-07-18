@@ -13,29 +13,40 @@ const lines = [
   "",
 
   "$ current_role",
-  "Cyber Security Intern",
+  "Cloud & DevOps Trainee",
 
   "",
 
-  "$ skills",
-  "Python | Linux | Networking | React | SQL | VAPT | Ethical Hacking",
+  "$ cloud_stack",
+  "AWS | EC2 | S3 | CloudFront | IAM",
+
+  "",
+
+  "$ devops_stack",
+  "Linux | Git | GitHub | Docker (Learning)",
+
+  "",
+
+  "$ cybersecurity",
+  "VAPT | Networking | Python | OWASP Top 10",
 
   "",
 
   "$ certifications",
+  "AWS Cloud Training",
   "Cyber Security Basics",
   "IoT Network Specialist",
   "Cybersecurity Foundation",
 
   "",
 
-  "$ goal",
-  "Become a Professional Cyber Security Engineer",
+  "$ career_path",
+  "Cloud Engineer → DevOps Engineer → DevSecOps → Cyber Security",
 
   "",
 
   "$ status",
-  "Available for Internship ✔",
+  "Available for Internship & Entry-Level Roles ✔",
 ];
 
 export default function Terminal() {
@@ -74,7 +85,7 @@ export default function Terminal() {
           <div className="h-3 w-3 rounded-full bg-green-500"></div>
 
           <span className="ml-4 font-mono text-sm text-gray-400">
-            faizan@portfolio:~
+            faizan@cloud-devops:~
           </span>
         </div>
 

@@ -48,8 +48,7 @@ export default function Hero() {
 </p>
 
 <p className="mt-6 max-w-xl text-lg leading-8 text-gray-400">
-  Passionate about securing modern applications through ethical hacking,
-  vulnerability assessment, and practical cybersecurity solutions.
+  Building secure and scalable cloud infrastructure with AWS, Linux and DevOps practices while continuously expanding my Cyber Security expertise.
 </p>
 
           <div className="mt-10 flex flex-wrap gap-5">
