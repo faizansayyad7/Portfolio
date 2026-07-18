@@ -34,10 +34,10 @@ export default function Hero() {
           <p className="mt-8 text-xl text-cyan-400 font-semibold">
   <Typewriter
     words={[
-      "Cyber Security Intern",
-      "VAPT Enthusiast",
-      "Ethical Hacker",
-      "Python Developer",
+      "Cloud & DevOps Trainee",
+      "AWS Cloud Enthusiast",
+      "Linux System Administrator",
+      "Cyber Security Enthusiast",
     ]}
     loop={0}
     cursor
@@ -199,7 +199,7 @@ export default function Hero() {
               </div>
 
               <div className="mt-3 border-t border-white/10 pt-3 text-sm text-gray-300">
-                Cyber Security Intern
+                Cloud & DevOps Trainee
               </div>
             </div>
           </div>
