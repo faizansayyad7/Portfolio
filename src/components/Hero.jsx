@@ -22,7 +22,7 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
         >
           <span className="rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-2 text-sm tracking-widest text-cyan-300">
-            CYBER SECURITY PORTFOLIO
+            CLOUD • DEVOPS • CYBER SECURITY
           </span>
 
           <h1 className="mt-8 text-5xl font-black leading-tight md:text-7xl">
